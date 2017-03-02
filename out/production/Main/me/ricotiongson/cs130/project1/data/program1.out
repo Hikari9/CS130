@@ -1,0 +1,71 @@
+// this program calculates the roots of a quadratic equation
+10**2 + (4*5.5*(-3)) =
+SAVE 1. # save the discriminant
+(-10 + SQRT(RECALL(1)))/(2*5.5) =
+PRINT.
+(-10 - SQRT(RECALL(1)))/(2*5.5) =
+PRINT.
+# end of the program
+COMMENT	// this program calculates the roots of a quadratic equation
+NUMBER	10
+EXP	**
+NUMBER	2
+PLUS	+
+LPAREN	(
+NUMBER	4
+MULT	*
+NUMBER	5.5
+MULT	*
+LPAREN	(
+MINUS	-
+NUMBER	3
+RPAREN	)
+RPAREN	)
+EQUALS	=
+IDENT	SAVE
+NUMBER	1
+PERIOD	.
+COMMENT	# save the discriminant
+LPAREN	(
+MINUS	-
+NUMBER	10
+PLUS	+
+IDENT	SQRT
+LPAREN	(
+IDENT	RECALL
+LPAREN	(
+NUMBER	1
+RPAREN	)
+RPAREN	)
+RPAREN	)
+DIVIDE	/
+LPAREN	(
+NUMBER	2
+MULT	*
+NUMBER	5.5
+RPAREN	)
+EQUALS	=
+IDENT	PRINT
+PERIOD	.
+LPAREN	(
+MINUS	-
+NUMBER	10
+MINUS	-
+IDENT	SQRT
+LPAREN	(
+IDENT	RECALL
+LPAREN	(
+NUMBER	1
+RPAREN	)
+RPAREN	)
+RPAREN	)
+DIVIDE	/
+LPAREN	(
+NUMBER	2
+MULT	*
+NUMBER	5.5
+RPAREN	)
+EQUALS	=
+IDENT	PRINT
+PERIOD	.
+COMMENT	# end of the program

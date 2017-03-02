@@ -11,7 +11,7 @@ public class Token {
     }
 
     public Token(TokenType type) {
-        this(type, null);
+        this(type, "");
     }
 
     public String getLexeme() {

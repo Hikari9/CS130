@@ -28,7 +28,7 @@ public class Tokenizer {
         int currentPointer = pointer;
         TokenType type = nextToken().getTokenType();
         pointer = currentPointer;
-        return !(type == TokenType.ERROR || type == TokenType.EOF);
+        return type != TokenType.EOF;
     }
 
     // gets the next token
@@ -47,20 +47,27 @@ public class Tokenizer {
         for (state = startState; !finalStates.contains(state); ++pointer) {
             Symbol symbol = peekSymbol();
             Integer symbolId = transitionMap.get(symbol);
-            try {
-                state = dfaTable[state][symbolId];
-                if (state == -1)
-                    throw new Exception();
-            } catch (Exception e) {
+            if (symbol == null || symbolId == null || symbolId == -1) {
+                // invalid character
+                builder.append(peekCharacter());
+                pointer++;
+                return new Token(TokenType.ERROR, builder.toString());
+            }
+            state = dfaTable[state][symbolId];
+            if (state == -1) {
+                // trap state
+                pointer++;
                 return new Token(TokenType.ERROR, builder.toString());
             }
             if (state != startState)
                 builder.append(peekCharacter());
         }
 
+
         // rollback if needed
-        if (handler.getRollbackStates().contains(state)) {
-            if (pointer > 0) {
+        Integer rollback = handler.getRollbackStateMap().get(state);
+        if (rollback != null) {
+            for (int i = 0; i < rollback && pointer > 0; ++i) {
                 --pointer;
                 builder.deleteCharAt(builder.length() - 1);
             }

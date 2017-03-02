@@ -12,7 +12,7 @@ public enum TokenType {
     LPAREN, RPAREN, COMMA, PERIOD, EQUALS,
 
     // special
-    ERROR;
+    ERROR, COMMENT;
 
     /**
      * Checks whether this TokenType type is between a range of two other TokenType types.
@@ -23,6 +23,11 @@ public enum TokenType {
      */
     private boolean isBetween(TokenType left, TokenType right) {
         return ordinal() >= left.ordinal() && ordinal() <= right.ordinal();
+    }
+
+    @Override
+    public String toString() {
+        return this.name();
     }
 
     /**

@@ -38,6 +38,9 @@ public class DFA {
         public boolean hasTransition(Object trans) {
             return children.containsKey(trans);
         }
+        public void removeTransition(Object trans) {
+            children.remove(trans);
+        }
         public State getNext(Object trans) {
             return children.get(trans);
         }

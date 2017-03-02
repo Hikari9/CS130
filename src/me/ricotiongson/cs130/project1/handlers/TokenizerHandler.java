@@ -1,6 +1,7 @@
 package me.ricotiongson.cs130.project1.handlers;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -15,7 +16,7 @@ public class TokenizerHandler {
     private int[][] dfaTable;
     private int startState;
     private Set<Integer> finalStates = new HashSet<>();
-    private Set<Integer> rollbackStates = new HashSet<>();
+    private Map<Integer, Integer> rollbackStates = new HashMap<>();
     private Map<Symbol, Integer> transitionMap;
     private TokenType[] tokenMap;
 
@@ -31,7 +32,7 @@ public class TokenizerHandler {
         return finalStates;
     }
 
-    public Set<Integer> getRollbackStates() {
+    public Map<Integer, Integer> getRollbackStateMap() {
         return rollbackStates;
     }
 
@@ -42,9 +43,10 @@ public class TokenizerHandler {
     public TokenType[] getTokenMap() {
         return tokenMap;
     }
+
     // create a tokenizer based
     public TokenizerHandler(DFA dfa,
-                            Set<DFA.State> rollbackStateSet,
+                            Map<DFA.State, Integer> rollbackStateMap,
                             Map<DFA.State, TokenType> stateTokenMap) {
         CounterMap<DFA.State> stateMap = new CounterMap<>();
         CounterMap<Symbol> transitionMap = new CounterMap<>();
@@ -60,8 +62,8 @@ public class TokenizerHandler {
             int nextStateId = stateMap.get(nextState);
             if (prevState.isFinal()) finalStates.add(prevStateId);
             if (nextState.isFinal()) finalStates.add(nextStateId);
-            if (rollbackStateSet.contains(prevState)) rollbackStates.add(prevStateId);
-            if (rollbackStateSet.contains(nextState)) rollbackStates.add(nextStateId);
+            if (rollbackStateMap.containsKey(prevState)) rollbackStates.put(prevStateId, rollbackStateMap.get(prevState));
+            if (rollbackStateMap.containsKey(nextState)) rollbackStates.put(nextStateId, rollbackStateMap.get(nextState));
 
         });
 
@@ -70,6 +72,7 @@ public class TokenizerHandler {
         for (Map.Entry<DFA.State, Integer> entry : stateMap.entrySet()) {
             int stateId = entry.getValue();
             TokenType token = stateTokenMap.get(entry.getKey());
+            if (token == null) token = TokenType.ERROR;
             tokenMap[stateId] = token;
         }
 

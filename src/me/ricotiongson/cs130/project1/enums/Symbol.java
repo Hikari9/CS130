@@ -13,11 +13,14 @@ public enum Symbol {
     SINGLE_QUOTE,
     DOUBLE_QUOTE,
     WHITESPACE,
+    ENDLINE,
 
     // literals
     EOF,
     PLUS, MULT, MINUS, DIVIDE, MODULO,
-    LPAREN, RPAREN, COMMA, PERIOD, EQUALS
+    LPAREN, RPAREN, COMMA, PERIOD, EQUALS,
+    HASHTAG,
+    ERROR
 
     // you can add more symbols here
     ;
@@ -33,7 +36,7 @@ public enum Symbol {
     }
 
     public static Symbol fromCharacter(Character ch) {
-        return characterMap.get(ch);
+        return characterMap.getOrDefault(ch, Symbol.ERROR);
     }
 
     // check if character matches symbol
@@ -52,7 +55,8 @@ public enum Symbol {
             case LETTER_E: return "eE";
             case SINGLE_QUOTE: return "'";
             case DOUBLE_QUOTE: return "\"";
-            case WHITESPACE: return " \t\n";
+            case WHITESPACE: return " \t";
+            case ENDLINE: return "\n";
             case EOF: return "\0";
             case PLUS: return "+";
             case MULT: return "*";
@@ -64,6 +68,7 @@ public enum Symbol {
             case COMMA: return ",";
             case PERIOD: return ".";
             case EQUALS: return "=";
+            case HASHTAG: return "#";
             default: return "";
         }
     }
