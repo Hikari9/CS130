@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0de4c20-eaec-4190-87ea-cf1e204c0e9a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.iml" afterPath="$PROJECT_DIR$/Main.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +20,8 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/project1/Main.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/project1/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
               <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
@@ -30,8 +32,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="program1.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/data/program1.out">
+        <entry file="file://$PROJECT_DIR$/java/project1/data/program1.out">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
@@ -41,7 +53,7 @@
         </entry>
       </file>
       <file leaf-file-name="program3.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/data/program3.out">
+        <entry file="file://$PROJECT_DIR$/java/project1/data/program3.out">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
@@ -51,7 +63,7 @@
         </entry>
       </file>
       <file leaf-file-name="program2.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/data/program2.out">
+        <entry file="file://$PROJECT_DIR$/java/project1/data/program2.out">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
@@ -61,7 +73,7 @@
         </entry>
       </file>
       <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/handlers/Tokenizer.java">
+        <entry file="file://$PROJECT_DIR$/java/project1/handlers/Tokenizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
               <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
@@ -73,7 +85,7 @@
         </entry>
       </file>
       <file leaf-file-name="Symbol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/enums/Symbol.java">
+        <entry file="file://$PROJECT_DIR$/java/project1/enums/Symbol.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
@@ -83,7 +95,7 @@
         </entry>
       </file>
       <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/enums/Token.java">
+        <entry file="file://$PROJECT_DIR$/java/project1/enums/Token.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="780">
               <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
@@ -96,14 +108,14 @@
         <entry file="file://$PROJECT_DIR$/Main.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TokenType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project1/enums/TokenType.java">
+        <entry file="file://$PROJECT_DIR$/java/project1/enums/TokenType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
               <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
@@ -182,6 +194,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/project1/handlers/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/project1/Main.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -638,12 +651,12 @@
       <workItem from="1488430797827" duration="14000" />
       <workItem from="1488436480252" duration="197000" />
       <workItem from="1488436788852" duration="500000" />
-      <workItem from="1488437584698" duration="42000" />
+      <workItem from="1488437584698" duration="228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18152000" />
+    <option name="totallyTimeSpent" value="18338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="52" width="1900" height="971" extended-state="0" />
@@ -655,9 +668,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3180212" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3180212" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2454252" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2454252" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -691,17 +704,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/LexicalTokenizerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4180">
-          <caret line="231" column="37" lean-forward="false" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/Tokenizer.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -711,7 +714,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Symbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
@@ -719,7 +722,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Token.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
@@ -727,7 +730,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/TokenType.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
@@ -735,7 +738,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Token.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
@@ -743,7 +746,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/Main.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
@@ -753,14 +756,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/TokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/TokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1160">
           <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Symbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
@@ -768,7 +771,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/TokenType.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="940">
           <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
@@ -776,7 +779,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/LexicalTokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/LexicalTokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -786,21 +789,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/sample3.in">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/sample3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generic/DFA.java">
+    <entry file="file://$PROJECT_DIR$/java/generic/DFA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/Tokenizer.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
@@ -817,7 +820,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Token.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -825,7 +828,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/Main.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -835,14 +838,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/TokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/TokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Symbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="64" column="36" lean-forward="false" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
@@ -850,7 +853,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/LexicalTokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/LexicalTokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
@@ -860,7 +863,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/Tokenizer.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="51" column="32" lean-forward="true" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
@@ -870,7 +873,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generic/CounterMap.java">
+    <entry file="file://$PROJECT_DIR$/java/generic/CounterMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -884,7 +887,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generic/DFA.java">
+    <entry file="file://$PROJECT_DIR$/java/generic/DFA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
@@ -898,7 +901,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/Main.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
@@ -931,63 +934,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/sample3.in">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/sample3.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/sample2.in">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/sample2.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/sample1.in">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/sample1.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/expected2.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/expected2.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/expected3.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/expected3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generic/CounterMap.java">
+    <entry file="file://$PROJECT_DIR$/java/generic/CounterMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="75" lean-forward="false" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generic/DFA.java">
+    <entry file="file://$PROJECT_DIR$/java/generic/DFA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2440">
           <caret line="147" column="30" lean-forward="false" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/expected1.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/expected1.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/LexicalTokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/LexicalTokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4180">
           <caret line="231" column="37" lean-forward="false" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
@@ -997,14 +1000,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/TokenizerHandler.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/TokenizerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2800">
           <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/program1.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/program1.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
@@ -1012,7 +1015,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/program2.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/program2.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
@@ -1020,7 +1023,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/data/program3.out">
+    <entry file="file://$PROJECT_DIR$/java/project1/data/program3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
@@ -1028,7 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/TokenType.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
@@ -1036,7 +1039,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Symbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
@@ -1044,7 +1047,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/enums/Token.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/enums/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
@@ -1055,13 +1058,13 @@
     <entry file="file://$PROJECT_DIR$/Main.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/src/project1/handlers/Tokenizer.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/handlers/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
@@ -1071,13 +1074,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project1/Main.java">
+    <entry file="file://$PROJECT_DIR$/java/project1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
