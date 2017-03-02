@@ -39,7 +39,7 @@ public class Main {
     public static void runTokenizer(String inputFilename, String outputFilename) throws IOException {
 
         // Get the path to the data folder
-        String pack = "src/" + Main.class.getPackage().getName();
+        String pack = "java/" + Main.class.getPackage().getName();
         String folder = pack + "/data/";
 
         // Create file reader/writer
