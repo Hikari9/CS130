@@ -14,13 +14,13 @@ public class Tokenizer {
     char[] buffer;
     int pointer;
 
-    public static TokenizerHandler getHandler() {
-        return LexicalTokenizerHandler.getInstance();
-    }
-
     public Tokenizer(String buffer) {
         this.buffer = buffer.toCharArray();
         this.pointer = 0;
+    }
+
+    public static TokenizerHandler getHandler() {
+        return LexicalTokenizerHandler.getInstance();
     }
 
     // check if there's a next token (note: this is slow!)

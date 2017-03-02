@@ -26,6 +26,7 @@ public enum Symbol {
     ;
 
     private static HashMap<Character, Symbol> characterMap = new HashMap<>();
+
     static {
         for (Symbol symbol : Symbol.values()) {
             String pattern = symbol.toString();
@@ -50,26 +51,46 @@ public enum Symbol {
     @Override
     public String toString() {
         switch (this) {
-            case DIGIT: return "0123456789";
-            case LETTER_NOT_E: return "QWRTYUIOPASDFGHJKLZXCVBNMqwrtyuiopasdfghjklzxcvbnm";
-            case LETTER_E: return "eE";
-            case SINGLE_QUOTE: return "'";
-            case DOUBLE_QUOTE: return "\"";
-            case WHITESPACE: return " \t";
-            case ENDLINE: return "\n";
-            case EOF: return "\0";
-            case PLUS: return "+";
-            case MULT: return "*";
-            case MINUS: return "-";
-            case DIVIDE: return "/";
-            case MODULO: return "%";
-            case LPAREN: return "(";
-            case RPAREN: return ")";
-            case COMMA: return ",";
-            case PERIOD: return ".";
-            case EQUALS: return "=";
-            case HASHTAG: return "#";
-            default: return "";
+            case DIGIT:
+                return "0123456789";
+            case LETTER_NOT_E:
+                return "QWRTYUIOPASDFGHJKLZXCVBNMqwrtyuiopasdfghjklzxcvbnm";
+            case LETTER_E:
+                return "eE";
+            case SINGLE_QUOTE:
+                return "'";
+            case DOUBLE_QUOTE:
+                return "\"";
+            case WHITESPACE:
+                return " \t";
+            case ENDLINE:
+                return "\n";
+            case EOF:
+                return "\0";
+            case PLUS:
+                return "+";
+            case MULT:
+                return "*";
+            case MINUS:
+                return "-";
+            case DIVIDE:
+                return "/";
+            case MODULO:
+                return "%";
+            case LPAREN:
+                return "(";
+            case RPAREN:
+                return ")";
+            case COMMA:
+                return ",";
+            case PERIOD:
+                return ".";
+            case EQUALS:
+                return "=";
+            case HASHTAG:
+                return "#";
+            default:
+                return "";
         }
     }
 }

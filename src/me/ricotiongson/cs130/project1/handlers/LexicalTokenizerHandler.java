@@ -1,21 +1,47 @@
 package me.ricotiongson.cs130.project1.handlers;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import me.ricotiongson.cs130.project1.enums.Symbol;
-import me.ricotiongson.cs130.project1.enums.TokenType;
 import me.ricotiongson.cs130.generic.DFA;
 import me.ricotiongson.cs130.generic.DFA.State;
+import me.ricotiongson.cs130.project1.enums.Symbol;
+import me.ricotiongson.cs130.project1.enums.TokenType;
 
-import static me.ricotiongson.cs130.project1.enums.Symbol.*;
+import static me.ricotiongson.cs130.project1.enums.Symbol.DIGIT;
+import static me.ricotiongson.cs130.project1.enums.Symbol.DIVIDE;
+import static me.ricotiongson.cs130.project1.enums.Symbol.DOUBLE_QUOTE;
+import static me.ricotiongson.cs130.project1.enums.Symbol.ENDLINE;
+import static me.ricotiongson.cs130.project1.enums.Symbol.EOF;
+import static me.ricotiongson.cs130.project1.enums.Symbol.ERROR;
+import static me.ricotiongson.cs130.project1.enums.Symbol.HASHTAG;
+import static me.ricotiongson.cs130.project1.enums.Symbol.LETTER_E;
+import static me.ricotiongson.cs130.project1.enums.Symbol.LETTER_NOT_E;
+import static me.ricotiongson.cs130.project1.enums.Symbol.MINUS;
+import static me.ricotiongson.cs130.project1.enums.Symbol.MULT;
+import static me.ricotiongson.cs130.project1.enums.Symbol.PERIOD;
+import static me.ricotiongson.cs130.project1.enums.Symbol.PLUS;
+import static me.ricotiongson.cs130.project1.enums.Symbol.SINGLE_QUOTE;
+import static me.ricotiongson.cs130.project1.enums.Symbol.WHITESPACE;
 
 // Singleton class for tokenizing
 public class LexicalTokenizerHandler extends TokenizerHandler {
 
     private static LexicalTokenizerHandler instance = null;
+
+    private LexicalTokenizerHandler(DFA dfa, Map<State, Integer> rollbackStateMap, Map<State, TokenType> stateTokenMap) {
+        super(dfa, rollbackStateMap, stateTokenMap);
+        System.out.println("Created lexical tokenizer handler, with " + this.getDfaTable().length + " states");
+        /*
+        for (int i = 0; i < this.getDfaTable().length; ++i) {
+            for (int j = 0; j < this.getDfaTable()[i].length; ++j) {
+                System.out.print(this.getDfaTable()[i][j]);
+                System.out.print(' ');
+            }
+            System.out.println();
+        }
+        */
+    }
 
     public static LexicalTokenizerHandler getInstance() {
         if (instance != null)
@@ -107,7 +133,8 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             // */
 
 
-        }{ // IDENT tokenizer
+        }
+        { // IDENT tokenizer
 
             // get state for first letter
             State letter = root.transition(LETTER_NOT_E);
@@ -123,7 +150,8 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             tokenMap.put(fin, TokenType.IDENT);
             transitionOtherwise(fin, trap);
 
-        }{ // STRING tokenizer
+        }
+        { // STRING tokenizer
 
             // start with a single quote
             State singleQuote = root.transition(SINGLE_QUOTE);
@@ -162,7 +190,8 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             rollbackStates.put(trapWithRollback, 1);
             transitionOtherwise(trapWithRollback, trapWithRollback);
 
-        }{ // MULT and EXP
+        }
+        { // MULT and EXP
 
             // separate transition for MULT and EXP
             State mult = root.transition(MULT);
@@ -177,7 +206,8 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             tokenMap.put(multFin, TokenType.MULT);
             transitionOtherwise(exp, trap);
             transitionOtherwise(multFin, trap);
-        }{ // DIVIDE and COMMENT
+        }
+        { // DIVIDE and COMMENT
             State div = root.transition(DIVIDE);
             State comment = div.transition(DIVIDE);
             root.transition(HASHTAG, comment);
@@ -193,14 +223,17 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             tokenMap.put(commentEnd, TokenType.COMMENT);
             transitionOtherwise(divEnd, trap);
             transitionOtherwise(commentEnd, trap);
-        }{ // everything  have there own single states
+        }
+        { // everything  have there own single states
             for (Symbol symbol : Symbol.values()) {
                 if (!root.hasTransition(symbol)) {
                     State fin = root.transition(symbol);
                     fin.setFinal(true);
                     TokenType type = null;
-                    try {type = TokenType.valueOf(symbol.name());}
-                    catch (IllegalArgumentException e) {}
+                    try {
+                        type = TokenType.valueOf(symbol.name());
+                    } catch (IllegalArgumentException e) {
+                    }
                     if (type != null)
                         tokenMap.put(fin, type);
                     transitionOtherwise(fin, trap);
@@ -209,20 +242,6 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             transitionOtherwise(root, trap);
         }
         return instance = new LexicalTokenizerHandler(dfa, rollbackStates, tokenMap);
-    }
-
-    private LexicalTokenizerHandler(DFA dfa, Map<State, Integer> rollbackStateMap, Map<State, TokenType> stateTokenMap) {
-        super(dfa, rollbackStateMap, stateTokenMap);
-        System.out.println("Created lexical tokenizer handler, with " + this.getDfaTable().length + " states");
-        /*
-        for (int i = 0; i < this.getDfaTable().length; ++i) {
-            for (int j = 0; j < this.getDfaTable()[i].length; ++j) {
-                System.out.print(this.getDfaTable()[i][j]);
-                System.out.print(' ');
-            }
-            System.out.println();
-        }
-        */
     }
 
     private static State transitionOtherwise(State currentState, State res) {

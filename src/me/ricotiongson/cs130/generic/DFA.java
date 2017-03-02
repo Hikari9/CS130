@@ -8,48 +8,9 @@ import java.util.Stack;
 public class DFA {
 
     private State start = new State();
-    public State getStartState() {return start;}
 
-    public interface DFSCallback<T> {
-        void onVisit(T transition, State prevState, State nextState);
-    }
-
-    public static class State {
-        private HashMap<Object, State> children = new HashMap<>();
-        private State() {}
-        private boolean isFinalState = false;
-        public State transition(Object trans, State nextState) {
-            if (nextState == null)
-                return transition(trans);
-            children.put(trans, nextState);
-            return nextState;
-        }
-        public State transition(Object trans) {
-            State newState = new State();
-            transition(trans, newState);
-            return newState;
-        }
-        public State loop(Object trans) {
-            return transition(trans, this);
-        }
-        public Map<Object, State> getChildren() {
-            return children;
-        }
-        public boolean hasTransition(Object trans) {
-            return children.containsKey(trans);
-        }
-        public void removeTransition(Object trans) {
-            children.remove(trans);
-        }
-        public State getNext(Object trans) {
-            return children.get(trans);
-        }
-        public void setFinal(boolean yes) {
-            isFinalState = yes;
-        }
-        public boolean isFinal() {
-            return isFinalState;
-        }
+    public State getStartState() {
+        return start;
     }
 
     public <T> void dfs(DFSCallback<T> callback) {
@@ -69,6 +30,59 @@ public class DFA {
                     dfsStack.push(nextState);
                 }
             }
+        }
+    }
+
+    public interface DFSCallback<T> {
+        void onVisit(T transition, State prevState, State nextState);
+    }
+
+    public static class State {
+        private HashMap<Object, State> children = new HashMap<>();
+        private boolean isFinalState = false;
+
+        private State() {
+        }
+
+        public State transition(Object trans, State nextState) {
+            if (nextState == null)
+                return transition(trans);
+            children.put(trans, nextState);
+            return nextState;
+        }
+
+        public State transition(Object trans) {
+            State newState = new State();
+            transition(trans, newState);
+            return newState;
+        }
+
+        public State loop(Object trans) {
+            return transition(trans, this);
+        }
+
+        public Map<Object, State> getChildren() {
+            return children;
+        }
+
+        public boolean hasTransition(Object trans) {
+            return children.containsKey(trans);
+        }
+
+        public void removeTransition(Object trans) {
+            children.remove(trans);
+        }
+
+        public State getNext(Object trans) {
+            return children.get(trans);
+        }
+
+        public boolean isFinal() {
+            return isFinalState;
+        }
+
+        public void setFinal(boolean yes) {
+            isFinalState = yes;
         }
     }
 

@@ -20,30 +20,6 @@ public class TokenizerHandler {
     private Map<Symbol, Integer> transitionMap;
     private TokenType[] tokenMap;
 
-    public int[][] getDfaTable() {
-        return dfaTable;
-    }
-
-    public int getStartState() {
-        return startState;
-    }
-
-    public Set<Integer> getFinalStates() {
-        return finalStates;
-    }
-
-    public Map<Integer, Integer> getRollbackStateMap() {
-        return rollbackStates;
-    }
-
-    public Map<Symbol, Integer> getTransitionMap() {
-        return transitionMap;
-    }
-
-    public TokenType[] getTokenMap() {
-        return tokenMap;
-    }
-
     // create a tokenizer based
     public TokenizerHandler(DFA dfa,
                             Map<DFA.State, Integer> rollbackStateMap,
@@ -62,8 +38,10 @@ public class TokenizerHandler {
             int nextStateId = stateMap.get(nextState);
             if (prevState.isFinal()) finalStates.add(prevStateId);
             if (nextState.isFinal()) finalStates.add(nextStateId);
-            if (rollbackStateMap.containsKey(prevState)) rollbackStates.put(prevStateId, rollbackStateMap.get(prevState));
-            if (rollbackStateMap.containsKey(nextState)) rollbackStates.put(nextStateId, rollbackStateMap.get(nextState));
+            if (rollbackStateMap.containsKey(prevState))
+                rollbackStates.put(prevStateId, rollbackStateMap.get(prevState));
+            if (rollbackStateMap.containsKey(nextState))
+                rollbackStates.put(nextStateId, rollbackStateMap.get(nextState));
 
         });
 
@@ -88,6 +66,30 @@ public class TokenizerHandler {
             int transitionId = transitionMap.get(transition);
             dfaTable[prevStateId][transitionId] = nextStateId;
         });
+    }
+
+    public int[][] getDfaTable() {
+        return dfaTable;
+    }
+
+    public int getStartState() {
+        return startState;
+    }
+
+    public Set<Integer> getFinalStates() {
+        return finalStates;
+    }
+
+    public Map<Integer, Integer> getRollbackStateMap() {
+        return rollbackStates;
+    }
+
+    public Map<Symbol, Integer> getTransitionMap() {
+        return transitionMap;
+    }
+
+    public TokenType[] getTokenMap() {
+        return tokenMap;
     }
 
 

@@ -2,21 +2,17 @@ package me.ricotiongson.cs130.project1.main;
 
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
-import me.ricotiongson.cs130.project1.enums.Symbol;
 import me.ricotiongson.cs130.project1.enums.Token;
 import me.ricotiongson.cs130.project1.enums.TokenType;
 
 public class Main {
 
-    public static void run(String inputFilename, String outputFilename) throws FileNotFoundException, IOException {
+    public static void run(String inputFilename, String outputFilename) throws IOException {
         String folder = "src/me/ricotiongson/cs130/project1/data/";
         BufferedReader br = new BufferedReader(new FileReader(folder + inputFilename));
         PrintWriter pw = new PrintWriter(new FileWriter(folder + outputFilename));
@@ -43,7 +39,7 @@ public class Main {
         pw.close();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         run("sample1.in", "program1.out");
         run("sample2.in", "program2.out");
         run("sample3.in", "program3.out");
