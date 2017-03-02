@@ -2,9 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0de4c20-eaec-4190-87ea-cf1e204c0e9a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/CounterMap.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/CounterMap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/DFA$State.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/DFA$State.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/DFA.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/generic/DFA.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Symbol$1.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Symbol$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Symbol.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Symbol.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Token.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/Token.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/TokenType.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/enums/TokenType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/main/Main.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/main/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/main/Tokenizer.class" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/main/Tokenizer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/CounterMap.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/CounterMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/DFA.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/DFA.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program1.out" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program1.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program2.out" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program2.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program3.out" afterPath="$PROJECT_DIR$/out/production/Main/me/ricotiongson/cs130/project1/data/program3.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program2.out" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program2.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program3.out" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program3.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java" afterPath="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +45,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state relative-caret-position="60">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,20 +54,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CounterMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/CounterMap.java">
+      <file leaf-file-name="TokenizerHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="75" lean-forward="false" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
+            <state relative-caret-position="171">
+              <caret line="150" column="11" lean-forward="true" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4369#4370#0" expanded="true" />
+                <element signature="e#4400#4401#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="program1.out" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DFA.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DFA.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/DFA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="2440">
               <caret line="147" column="30" lean-forward="false" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
               <folding>
                 <element signature="e#3028#3029#0" expanded="true" />
@@ -55,64 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main.iml">
+      <file leaf-file-name="expected1.out" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/expected1.out">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Symbol.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TokenizerHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="92" column="5" lean-forward="false" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3242#3243#0" expanded="true" />
-                <element signature="e#3273#3274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-              <folding>
-                <element signature="e#271#272#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#334#335#0" expanded="true" />
-                <element signature="e#363#364#0" expanded="true" />
-                <element signature="e#402#403#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#492#493#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TokenType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="529">
+              <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -121,8 +104,8 @@
       <file leaf-file-name="LexicalTokenizerHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3448">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="-269">
+              <caret line="231" column="37" lean-forward="false" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,11 +116,50 @@
       <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="191">
+              <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#3562#3563#0" expanded="true" />
+                <element signature="e#3622#3623#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Symbol.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+              <folding>
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#891#892#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokenType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -196,19 +218,19 @@
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/sample1.in" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/sample2.in" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/sample3.in" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/sample1.out" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/sample2.out" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/expected3.out" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java" />
-        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/CounterMap.java" />
         <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/DFA.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java" />
       </list>
     </option>
   </component>
@@ -274,6 +296,88 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs130" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs130" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="enums" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cs130" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -680,12 +784,12 @@
       <workItem from="1488273441261" duration="2849000" />
       <workItem from="1488278047023" duration="6933000" />
       <workItem from="1488420077426" duration="2805000" />
-      <workItem from="1488423121724" duration="1492000" />
+      <workItem from="1488423121724" duration="4593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14079000" />
+    <option name="totallyTimeSpent" value="17180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="999" extended-state="6" />
@@ -693,12 +797,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31813" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32839224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31813" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23375931" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -709,7 +814,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12287439" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -724,14 +828,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
@@ -746,14 +842,10 @@
         <state relative-caret-position="240">
           <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
           <folding>
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -774,8 +866,8 @@
           <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3242#3243#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
+            <element signature="e#4369#4370#0" expanded="true" />
+            <element signature="e#4400#4401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -830,6 +922,10 @@
           <caret line="48" column="57" lean-forward="true" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#3622#3623#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,14 +942,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -874,8 +966,8 @@
           <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3242#3243#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
+            <element signature="e#4369#4370#0" expanded="true" />
+            <element signature="e#4400#4401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -904,6 +996,10 @@
           <caret line="51" column="32" lean-forward="true" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#3622#3623#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -994,14 +1090,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1026,14 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/expected1.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1180">
-          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/expected3.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1042,86 +1122,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3448">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="92" column="5" lean-forward="false" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3242#3243#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1135,11 +1140,102 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/generic/DFA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="2440">
           <caret line="147" column="30" lean-forward="false" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
           <folding>
             <element signature="e#3028#3029#0" expanded="true" />
             <element signature="e#3082#3083#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/expected1.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/enums/TokenType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/data/program1.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+            <element signature="e#3622#3623#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/LexicalTokenizerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-269">
+          <caret line="231" column="37" lean-forward="false" selection-start-line="231" selection-start-column="37" selection-end-line="231" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/ricotiongson/cs130/project1/handlers/TokenizerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="150" column="11" lean-forward="true" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4369#4370#0" expanded="true" />
+            <element signature="e#4400#4401#0" expanded="true" />
           </folding>
         </state>
       </provider>

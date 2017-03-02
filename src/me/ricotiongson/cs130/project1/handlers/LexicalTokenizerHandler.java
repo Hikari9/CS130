@@ -24,29 +24,40 @@ import static me.ricotiongson.cs130.project1.enums.Symbol.PLUS;
 import static me.ricotiongson.cs130.project1.enums.Symbol.SINGLE_QUOTE;
 import static me.ricotiongson.cs130.project1.enums.Symbol.WHITESPACE;
 
-// Singleton class for tokenizing
+/**
+ * The singleton handler class for lexically tokenizing a String. This class handles the creation
+ * of the DFA graph used for the default Tokenizer.
+ */
 public class LexicalTokenizerHandler extends TokenizerHandler {
 
     private static LexicalTokenizerHandler instance = null;
 
-    private LexicalTokenizerHandler(DFA dfa, Map<State, Integer> rollbackStateMap, Map<State, TokenType> stateTokenMap) {
+    /**
+     * Private constructor for creating a TokenizerHandler based on a DFA, the set of rollback
+     * states, and a mapper for final states to tokens.
+     * @param dfa the DFA used for tokenizing
+     * @param rollbackStateMap a map of states to integers for when a final state needs to undo
+     *                         a number of characters
+     * @param stateTokenMap a map of states to tokens to identify when the token to output when
+     *                      a final state is reached
+     */
+    private LexicalTokenizerHandler(DFA dfa,
+                                    Map<State, Integer> rollbackStateMap,
+                                    Map<State, TokenType> stateTokenMap) {
         super(dfa, rollbackStateMap, stateTokenMap);
-        System.out.println("Created lexical tokenizer handler, with " + this.getDfaTable().length + " states");
-        /*
-        for (int i = 0; i < this.getDfaTable().length; ++i) {
-            for (int j = 0; j < this.getDfaTable()[i].length; ++j) {
-                System.out.print(this.getDfaTable()[i][j]);
-                System.out.print(' ');
-            }
-            System.out.println();
-        }
-        */
+        // System.out.println("Created lexical tokenizer handler, with " + this.getDfaTable().length + " states");
     }
 
+    /**
+     * Gets the singleton instance of this tokenizer handler. Creates the handler DFA and respective
+     * state maps when first called.
+     * @return the lexical tokenizer handler instance
+     */
     public static LexicalTokenizerHandler getInstance() {
         if (instance != null)
             return instance;
-        // create handlers
+
+        // this is where we create the DFA graph
         DFA dfa = new DFA();
         Map<State, Integer> rollbackStates = new HashMap<>();
         Map<State, TokenType> tokenMap = new HashMap<>();
@@ -131,7 +142,6 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             transitionOtherwise(finTripleRollback, trap);
 
             // */
-
 
         }
         { // IDENT tokenizer

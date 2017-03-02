@@ -2,6 +2,9 @@ package me.ricotiongson.cs130.project1.enums;
 
 import java.util.HashMap;
 
+/**
+ * A class representing the alphabet used for tokenizing
+ */
 public enum Symbol {
 
     // note: symbol groups must be disjoint with each other!
@@ -36,17 +39,17 @@ public enum Symbol {
         }
     }
 
+    /**
+     * Maps a character to a Symbol.
+     * @param ch the character to map
+     * @return the Symbol representing this character, Symbol.ERROR if character does not exist
+     */
     public static Symbol fromCharacter(Character ch) {
         return characterMap.getOrDefault(ch, Symbol.ERROR);
     }
 
-    // check if character matches symbol
-    public boolean matches(Character c) {
-        return Symbol.fromCharacter(c) == this;
-    }
-
     /**
-     * Get available characters per Symbol
+     * Get available characters per Symbol.
      */
     @Override
     public String toString() {

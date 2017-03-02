@@ -9,21 +9,31 @@ import me.ricotiongson.cs130.project1.enums.TokenType;
 import me.ricotiongson.cs130.project1.handlers.LexicalTokenizerHandler;
 import me.ricotiongson.cs130.project1.handlers.TokenizerHandler;
 
+/**
+ * Tokenizer class for parsing tokens from a character buffer.
+ */
 public class Tokenizer {
-
-    char[] buffer;
-    int pointer;
-
-    public Tokenizer(String buffer) {
-        this.buffer = buffer.toCharArray();
-        this.pointer = 0;
-    }
 
     public static TokenizerHandler getHandler() {
         return LexicalTokenizerHandler.getInstance();
     }
 
-    // check if there's a next token (note: this is slow!)
+    char[] buffer;
+    int pointer;
+
+    /**
+     * Constructs a tokenizer from a String buffer
+     * @param buffer the String buffer to tokenize
+     */
+    public Tokenizer(String buffer) {
+        this.buffer = buffer.toCharArray();
+        this.pointer = 0;
+    }
+
+    /**
+     * Checks if there is a next token is not EOF.
+     * @return true if the next token is not EOF
+     */
     public boolean hasNextToken() {
         int currentPointer = pointer;
         TokenType type = nextToken().getTokenType();
@@ -31,7 +41,11 @@ public class Tokenizer {
         return type != TokenType.EOF;
     }
 
-    // gets the next token
+    /**
+     * Parses the next token from the buffer, until a final state is reached. Note that does not
+     * append the symbols that loop in the start state to the lexeme.
+     * @return the next Token along with its lexeme
+     */
     public Token nextToken() {
 
         // initialize
@@ -79,16 +93,22 @@ public class Tokenizer {
 
     }
 
+    /**
+     * Peeks the next character in the buffer without removing it from the buffer.
+     * @return the next character in the buffer
+     */
     public char peekCharacter() {
         if (pointer < buffer.length)
             return buffer[pointer];
-        return Symbol.EOF.toString().charAt(0);
+        return '\0';
     }
 
+    /**
+     * Peeks the next Symbol in the buffer without removing it from the buffer.
+     * @return the next Symbol representing the next character in the buffer
+     */
     public Symbol peekSymbol() {
-        if (pointer < buffer.length)
-            return Symbol.fromCharacter(buffer[pointer]);
-        return Symbol.EOF;
+        return Symbol.fromCharacter(peekCharacter());
     }
 
 }

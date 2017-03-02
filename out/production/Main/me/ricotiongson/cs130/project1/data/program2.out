@@ -1,15 +1,7 @@
-
-2 'kinds' of "strings"
-
-# operator list follows:
-
-+ - * / % ** ( ) , . =
-
 NUMBER	2
 STRING	'kinds'
 IDENT	of
 STRING	"strings"
-COMMENT	# operator list follows:
 PLUS	+
 MINUS	-
 MULT	*
