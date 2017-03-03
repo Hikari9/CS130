@@ -24,10 +24,9 @@ IDENT	formed
 IDENT	numbers
 IDENT	follow
 ERROR	:
-NUMBER	1
-IDENT	efgh
-NUMBER	55
-PERIOD	.
+ERROR	1e
+IDENT	fgh
+ERROR	55.
 IDENT	xyz
 IDENT	these
 IDENT	are

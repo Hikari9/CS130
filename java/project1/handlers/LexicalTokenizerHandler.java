@@ -28,7 +28,7 @@ import static project1.enums.Symbol.WHITESPACE;
  * The singleton handler class for lexically tokenizing a String. This class handles the creation
  * of the DFA graph used for the default Tokenizer.
  */
-public class LexicalTokenizerHandler extends TokenizerHandler {
+class LexicalTokenizerHandler extends TokenizerHandler {
 
     private static LexicalTokenizerHandler instance = null;
 
@@ -107,7 +107,7 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
             tokenMap.put(fin, TokenType.NUMBER);
             transitionOtherwise(fin, trap);
 
-            /* USE CASE: badly formed numbers as an error with a rollback
+            // /* USE CASE: badly formed numbers as an error with a rollback
 
             // add traps for badly formed numbers (with rollback)
             State trapWithRollback = transitionOtherwise(decimalPoint, null);
@@ -120,7 +120,7 @@ public class LexicalTokenizerHandler extends TokenizerHandler {
 
             // */
 
-            // /* USE CASE: rollback if badly formed number
+            /* USE CASE: rollback if badly formed number
 
             // another final state for unfinished decimal point/exponents
             // note: this is a double rollback state
