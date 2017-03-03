@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import project1.handlers.LexicalTokenizerHandler;
 import project1.handlers.TokenizerHandler;
 import project1.enums.Token;
 import project1.enums.TokenType;
@@ -23,7 +22,7 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
 
-        TokenizerHandler handler = LexicalTokenizerHandler.getInstance();
+        TokenizerHandler handler = Tokenizer.getHandler();
         handler.printDfaTable();
         runTokenizer("sample1.in", "program1.out");
         runTokenizer("sample2.in", "program2.out");
