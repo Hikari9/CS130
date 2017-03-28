@@ -27,6 +27,7 @@ public class Main {
         runTokenizer("sample1.in", "program1.out");
         runTokenizer("sample2.in", "program2.out");
         runTokenizer("sample3.in", "program3.out");
+        runTokenizer("sample4.in", "program4.out");
     }
 
     /**

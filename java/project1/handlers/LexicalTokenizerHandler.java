@@ -8,21 +8,7 @@ import generic.DFA.State;
 import project1.enums.Symbol;
 import project1.enums.TokenType;
 
-import static project1.enums.Symbol.DIGIT;
-import static project1.enums.Symbol.DIVIDE;
-import static project1.enums.Symbol.DOUBLE_QUOTE;
-import static project1.enums.Symbol.ENDLINE;
-import static project1.enums.Symbol.EOF;
-import static project1.enums.Symbol.ERROR;
-import static project1.enums.Symbol.HASHTAG;
-import static project1.enums.Symbol.LETTER_E;
-import static project1.enums.Symbol.LETTER_NOT_E;
-import static project1.enums.Symbol.MINUS;
-import static project1.enums.Symbol.MULT;
-import static project1.enums.Symbol.PERIOD;
-import static project1.enums.Symbol.PLUS;
-import static project1.enums.Symbol.SINGLE_QUOTE;
-import static project1.enums.Symbol.WHITESPACE;
+import static project1.enums.Symbol.*;
 
 /**
  * The singleton handler class for lexically tokenizing a String. This class handles the creation
@@ -216,6 +202,62 @@ class LexicalTokenizerHandler extends TokenizerHandler {
             tokenMap.put(multFin, TokenType.MULT);
             transitionOtherwise(exp, trap);
             transitionOtherwise(multFin, trap);
+        }
+        { // ASSIGNMENT (=), EQUALS (==)
+            
+            State equals = root.transition(EQUALS);
+            State doubleEquals = equals.transition(EQUALS);
+            State assignment = transitionOtherwise(equals, null);
+
+            /// setup final states
+            assignment.setFinal(true);
+            doubleEquals.setFinal(true);
+            rollbackStates.put(assignment, 1);
+            tokenMap.put(doubleEquals, TokenType.EQUALS);
+            tokenMap.put(assignment, TokenType.ASSIGNMENT);
+            transitionOtherwise(doubleEquals, trap);
+            transitionOtherwise(assignment, trap);
+        }
+        { // NOT_EQUALS
+            
+            State exclamation = root.transition(EXCLAMATION_POINT);
+            State notEquals = exclamation.transition(EQUALS);
+            transitionOtherwise(exclamation, trap);
+
+            /// setup final states
+            notEquals.setFinal(true);
+            tokenMap.put(notEquals, TokenType.NOT_EQUALS);
+            transitionOtherwise(notEquals, trap);
+        }
+        { // GREATER THAN (OR EQUALS)
+            
+            State greaterThan = root.transition(GREATER_THAN);
+            State greaterThanOrEquals = greaterThan.transition(EQUALS);
+            State greaterThanFin = transitionOtherwise(greaterThan, null);
+
+            /// setup final states
+            greaterThanOrEquals.setFinal(true);
+            greaterThanFin.setFinal(true);
+            rollbackStates.put(greaterThanFin, 1);
+            tokenMap.put(greaterThanOrEquals, TokenType.GREATER_THAN_OR_EQUALS);
+            tokenMap.put(greaterThanFin, TokenType.GREATER_THAN);
+            transitionOtherwise(greaterThanFin, trap);
+            transitionOtherwise(greaterThanOrEquals, trap);
+        }
+        { // LESS THAN (OR EQUALS)
+            
+            State lessThan = root.transition(LESS_THAN);
+            State lessThanOrEquals = lessThan.transition(EQUALS);
+            State lessThanFin = transitionOtherwise(lessThan, null);
+
+            /// setup final states
+            lessThanOrEquals.setFinal(true);
+            lessThanFin.setFinal(true);
+            rollbackStates.put(lessThanFin, 1);
+            tokenMap.put(lessThanOrEquals, TokenType.LESS_THAN_OR_EQUALS);
+            tokenMap.put(lessThanFin, TokenType.LESS_THAN);
+            transitionOtherwise(lessThanFin, trap);
+            transitionOtherwise(lessThanOrEquals, trap);
         }
         { // DIVIDE and COMMENT
             State div = root.transition(DIVIDE);

@@ -89,7 +89,23 @@ public class Tokenizer {
 
         // return token with lexeme
         TokenType type = handler.getTokenMap()[state];
-        return new Token(type, builder.toString());
+        String lexeme = builder.toString();
+
+        // special identifiers
+        if (type.equals(TokenType.IDENT)) {
+            switch (lexeme) {
+                case "SQRT":
+                    type = TokenType.SQRT;
+                    break;
+                case "IF":
+                    type = TokenType.IF;
+                    break;
+                case "PRINT":
+                    type = TokenType.PRINT;
+                    break;
+            }
+        }
+        return new Token(type, lexeme);
 
     }
 

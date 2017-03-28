@@ -18,11 +18,17 @@ public enum Symbol {
     WHITESPACE,
     ENDLINE,
 
+    // relational
+    EQUALS, EXCLAMATION_POINT,
+    GREATER_THAN,
+    LESS_THAN,
+
     // literals
     EOF,
     PLUS, MULT, MINUS, DIVIDE, MODULO,
-    LPAREN, RPAREN, COMMA, PERIOD, EQUALS,
+    LPAREN, RPAREN, COMMA, PERIOD,
     HASHTAG,
+    SEMICOLON,
     ERROR
 
     // you can add more symbols here
@@ -90,6 +96,14 @@ public enum Symbol {
                 return ".";
             case EQUALS:
                 return "=";
+            case EXCLAMATION_POINT:
+                return "!";
+            case GREATER_THAN:
+                return ">";
+            case LESS_THAN:
+                return "<";
+            case SEMICOLON:
+                return ";";
             case HASHTAG:
                 return "#";
             default:

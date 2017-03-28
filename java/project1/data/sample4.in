@@ -1,0 +1,1 @@
+IF (hello == "hi") PRINT (x = SQRT(2));

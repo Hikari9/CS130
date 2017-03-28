@@ -13,6 +13,7 @@ IDENT	characters
 IDENT	follow
 ERROR	^
 ERROR	!
+
 ERROR	"unterminated string
 IDENT	two
 IDENT	of
