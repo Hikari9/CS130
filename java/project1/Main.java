@@ -11,6 +11,7 @@ import project1.handlers.TokenizerHandler;
 import project1.enums.Token;
 import project1.enums.TokenType;
 import project1.handlers.Tokenizer;
+import project1.handlers.TokenizerNoComments;
 
 /**
  * The main driver program for this project.
@@ -59,7 +60,7 @@ public class Main {
 
         // Tokenize
         String input = builder.toString();
-        Tokenizer tokenizer = new Tokenizer(input);
+        Tokenizer tokenizer = new TokenizerNoComments(input);
         while (tokenizer.hasNextToken()) {
             Token token = tokenizer.nextToken();
             if (token.getTokenType() != TokenType.COMMENT)
