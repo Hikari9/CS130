@@ -1,0 +1,36 @@
+# sample input for project 2
+# everything should pass without errors
+
+PRINT('"""""""""" QUOTES """""""""""');
+PRINT("Rico's test cases ^^");
+
+PRINT(zero);
+PRINT(10 - 2 + 8);
+PRINT(5*4 - 7*6);
+PRINT(-7**2*3);
+PRINT(2**-2**3);
+PRINT(1e-2 ** 1 / 2);
+PRINT(-2**3);
+PRINT(-3 % 2);
+PRINT(1283 % 218);
+PRINT("hello world");
+PRINT('hello world');
+PRINT(-SQRT(4*3 - 1 + 7)**2);
+IF (0 != 0) x = 3;
+PRINT(x);
+pi = 3.141528;
+PI = 22 / 7;
+IF (pi == PI) PRINT('equal');
+IF (pi < PI) PRINT('less');
+IF (pi > PI) PRINT('greater');
+IF (pi != PI) PRINT('not equal');
+IF (pi <= PI) PRINT('less than or equal');
+IF (pi >= PI) PRINT('greater than or equal');
+pi = PI;
+IF (pi == PI) PRINT('equal');
+IF (pi < PI) PRINT('less');
+IF (pi > PI) PRINT('greater');
+IF (pi != PI) PRINT('not equal');
+IF (pi <= PI) PRINT('less than or equal');
+IF (pi >= PI) PRINT('greater than or equal');
+

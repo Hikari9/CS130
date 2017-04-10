@@ -116,7 +116,10 @@ public class CompilerGrammar {
         int currentErrorCount = errors.size();
         // start with the first token
         consumeNextToken();
-        S();
+        try {S();}
+        catch (Throwable e) {
+            error(new Error(e));
+        }
         return errors.size() <= currentErrorCount;
     }
 
@@ -188,7 +191,8 @@ public class CompilerGrammar {
         R();
         if (!expect(TokenType.SEMICOLON))
             error("S: expected semicolon after R");
-        S();
+        else
+            S();
     }
 
     /**
@@ -506,7 +510,7 @@ public class CompilerGrammar {
                 return Double.parseDouble(token.getLexeme());
             case STRING:
                 consumeNextToken();
-                return token.getLexeme();
+                return token.getLexeme().substring(1, token.getLexeme().length() - 1);
             case SQRT: {
                 consumeNextToken();
                 Object value = expectWrappedExpression("D1", "D2", "SQRT");

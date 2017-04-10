@@ -1,5 +1,7 @@
 package project2;
 
+import java.io.PrintStream;
+
 import project2.compiler.CompilerGrammar;
 import project2.compiler.Environment;
 
@@ -9,20 +11,31 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
      * Set a flag to continue whenever a boolean expression is encountered during IF statements.
      */
     Boolean condition = null;
+    PrintStream out;
+
+    public CompilerGrammarWithDebug() {
+        this(System.out);
+    }
+
+    public CompilerGrammarWithDebug(PrintStream printStream) {
+        super();
+        out = printStream;
+    }
 
     @Override
     protected void print(Object message) {
-        if (condition == null || condition)
-            System.out.println("output(" + message + ")");
+        if (condition == null || condition) {
+            out.println("output (" + message + ")");
+        }
     }
 
     @Override
     protected boolean B() {
         condition = super.B();
         if (condition)
-            System.out.print("condition met, ");
+            out.print("condition met, ");
         else
-            System.out.println("condition not met");
+            out.println("condition not met");
         return condition;
     }
 
@@ -31,7 +44,7 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
         super.A();
         if (condition == null || condition) {
             Environment env = getEnvironment();
-            System.out.println("computation performed(" + env.identifier + " = " + env.value + ")");
+            out.printf("computation performed (%s = %s)\n", env.identifier, ""  + env.value);
         }
     }
 

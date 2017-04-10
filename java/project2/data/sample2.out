@@ -1,0 +1,31 @@
+output ("""""""""" QUOTES """"""""""")
+output (Rico's test cases ^^)
+output (0.0)
+output (16.0)
+output (-22.0)
+output (-147.0)
+output (0.00390625)
+output (0.005)
+output (-8.0)
+output (-1.0)
+output (193.0)
+output (hello world)
+output (hello world)
+output (-17.999999999999996)
+condition not met
+output (0.0)
+computation performed (pi = 3.141528)
+computation performed (PI = 3.142857142857143)
+condition not met
+condition met, output (less)
+condition not met
+condition met, output (not equal)
+condition met, output (less than or equal)
+condition not met
+computation performed (pi = 3.142857142857143)
+condition met, output (equal)
+condition not met
+condition not met
+condition not met
+condition met, output (less than or equal)
+condition met, output (greater than or equal)
