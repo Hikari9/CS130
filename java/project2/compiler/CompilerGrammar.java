@@ -339,7 +339,15 @@ public class CompilerGrammar {
             Object a = expectWrappedExpression("E1", "E2", null);
             TokenType op = getToken().getTokenType();
             switch (op) {
-                case PLUS: case MINUS: case MULT: case DIVIDE: case MODULO: case EXP: {
+                case MINUS: {
+                    // special case, perform a plus without consuming the token
+                    Object b = E();
+                    if (a instanceof Double && b instanceof Double)
+                        return (double) a + (double) b;
+                    error("E2: invalid " + op.name() + " on doubles");
+                    break;
+                }
+                case PLUS: case MULT: case DIVIDE: case MODULO: case EXP: {
                     consumeNextToken();
                     Object b = E();
                     if (a instanceof Double && b instanceof Double) {
@@ -347,7 +355,6 @@ public class CompilerGrammar {
                         double y = (double) b;
                         switch (op) {
                             case PLUS: return x + y;
-                            case MINUS: return x - y;
                             case MULT: return x * y;
                             case DIVIDE: return x / y;
                             case MODULO: return x % y; // note: double modulo
@@ -382,13 +389,13 @@ public class CompilerGrammar {
                 if (!(a instanceof Double) || !(b instanceof Double))
                     return "" + a + b;
                 return (double) a + (double) b;
-            } else if (expect(TokenType.MINUS)) {
+            } else if (expect(TokenType.MINUS, false)) {
                 Object b = E();
                 if (!(a instanceof Double) || !(b instanceof Double)) {
-                    error("E3: expected doubles after MINUS token");
+                    error("E4: expected doubles after MINUS token");
                     return 0.0;
                 }
-                return (double) a - (double) b;
+                return (double) a + (double) b;
             } else {
                 return a;
             }
