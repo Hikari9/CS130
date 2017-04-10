@@ -136,8 +136,8 @@ class LexicalTokenizerHandler extends TokenizerHandler {
             State letter = root.transition(LETTER_NOT_E);
             root.transition(LETTER_E, letter);
 
-            // loop with more letters
-            letter.loop(LETTER_NOT_E).loop(LETTER_E);
+            // loop with more letters (or further digits for project 2)
+            letter.loop(LETTER_NOT_E).loop(LETTER_E).loop(DIGIT);
 
             // other characters end the identifier
             State fin = transitionOtherwise(letter, null);

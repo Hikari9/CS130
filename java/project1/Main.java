@@ -7,10 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import project1.handlers.TokenizerHandler;
 import project1.enums.Token;
 import project1.enums.TokenType;
 import project1.handlers.Tokenizer;
+import project1.handlers.TokenizerHandler;
 import project1.handlers.TokenizerNoComments;
 
 /**
@@ -33,7 +33,8 @@ public class Main {
 
     /**
      * Runs the tokenizer for a given input file and output file in the package data directory.
-     * @param inputFilename the filename of the input file to tokenize, with respect to the data directory
+     *
+     * @param inputFilename  the filename of the input file to tokenize, with respect to the data directory
      * @param outputFilename the filename of the output file to tokenize, with respect to the data directory
      * @throws IOException when there is an error in reading/writing files
      */
