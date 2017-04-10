@@ -1,4 +1,4 @@
-package project2;
+package project2.compiler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -388,7 +388,9 @@ public class CompilerGrammar {
                     error("E3: expected doubles after MINUS token");
                     return 0.0;
                 }
-                return (double) a + (double) b;
+                return (double) a - (double) b;
+            } else {
+                return a;
             }
         }
         return 0.0;
@@ -406,6 +408,7 @@ public class CompilerGrammar {
         TokenType op = getToken().getTokenType();
         switch (op) {
             case MULT: case DIVIDE: case MODULO: {
+                consumeNextToken();
                 Object b;
                 if (expect(TokenType.LPAREN, false))
                     b = expectWrappedExpression("F1", "F2", null);
@@ -495,8 +498,10 @@ public class CompilerGrammar {
                 consumeNextToken();
                 return Double.parseDouble(token.getLexeme());
             case STRING:
+                consumeNextToken();
                 return token.getLexeme();
             case SQRT: {
+                consumeNextToken();
                 Object value = expectWrappedExpression("D1", "D2", "SQRT");
                 if (value instanceof Double) {
                     double val = (double) value;

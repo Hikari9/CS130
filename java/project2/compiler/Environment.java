@@ -1,13 +1,13 @@
-package project2;
+package project2.compiler;
 
 /**
  * A simple linked list environment.
  */
 public class Environment {
 
-    private final String identifier;
-    private final Object value;
-    private final Environment parent;
+    public final String identifier;
+    public final Object value;
+    public final Environment parent;
 
     /**
      * Creates a new empty environment.
