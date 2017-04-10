@@ -1,5 +1,4 @@
-output ("""""""""" QUOTES """"""""""")
-output (Rico's test cases ^^)
+output (""" Rico test cases ^^ #ggwp """)
 output (0.0)
 output (16.0)
 output (-22.0)

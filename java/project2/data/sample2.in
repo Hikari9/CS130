@@ -1,8 +1,7 @@
 # sample input for project 2
 # everything should pass without errors
 
-PRINT('"""""""""" QUOTES """""""""""');
-PRINT("Rico's test cases ^^");
+PRINT('""" Rico test cases ^^ #ggwp """');
 
 PRINT(zero);
 PRINT(10 - 2 + 8);
