@@ -1,8 +1,5 @@
 package project2.compiler;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import project1.enums.Token;
 import project1.enums.TokenType;
 import project1.handlers.Tokenizer;
@@ -18,7 +15,8 @@ public class CompilerGrammar {
     /**
      * Contains the list of all errors after compiling the grammar.
      */
-    public final List<Error> errors = new ArrayList<>();
+    private CompileException error = null;
+
     /**
      * Captures the environment of the grammar parser
      */
@@ -28,6 +26,7 @@ public class CompilerGrammar {
      * overriding the onCreateTokenizer() method.
      */
     private Tokenizer tokenizer = null;
+
     /**
      * The current token to be processed during compilation.
      */
@@ -73,54 +72,67 @@ public class CompilerGrammar {
     }
 
     /**
-     * Utility method for adding an error.
-     *
-     * @param error the Error that occured
+     * Hook that handles what happens when an error was thrown during compilation of a grammar.
+     * @param message
      */
-    protected void error(Error error) {
-        errors.add(error);
+    protected void onError(String message) {
+        if (error == null)
+            error = new CompileException(message);
+        else
+            error = new CompileException(message, error);
     }
 
     /**
-     * Utility method for adding an error message. Internally calls error(new Error(message)).
-     *
-     * @param message the error message
+     * Getter to the compile errors thrown in this compiler grammar.
      */
-    protected void error(String message) {
-        error(new Error(message));
+    public CompileException getError() {
+        return error;
+    }
+
+    /**
+     * Clears all errors associated with this compiler grammar object.
+     */
+    public void clearErrors() {
+        this.error = null;
     }
 
     /**
      * Compiles a given program and returns true if the program compiled without errors. All
      * environment from previously compiled programs will be kept. Internally calls the method
-     * compile(program, true). Errors can be accessed via this.errors property.
+     * compile(program, true).
      *
      * @param program the program to be tokenized and compiled
-     * @return true if the program compiled without generating new errors
+     * @throws CompileException if the program compiled while generating errors
+     *
      */
-    public boolean compile(String program) {
-        return compile(program, true);
+    public void compile(String program) throws CompileException {
+        compile(program, true);
     }
 
     /**
-     * Compiles a given program and returns true if the program compiled without errors.
+     * Compiles a given program.
      *
      * @param program      the program to be tokenized and compiled
      * @param keepBindings flag if previously compiled environment should be kept or not
-     * @return true if the program compiled without generating new errors
+     * @throws CompileException if the program compiled while generating errors
      */
-    public boolean compile(String program, boolean keepBindings) {
+    public void compile(String program, boolean keepBindings) throws CompileException {
         this.tokenizer = onCreateTokenizer(program);
         if (keepBindings)
             setEnvironment(new Environment());
-        int currentErrorCount = errors.size();
+        // keep current error state if
+        CompileException errorState = getError();
         // start with the first token
         consumeNextToken();
-        try {S();}
-        catch (Throwable e) {
-            error(new Error(e));
+        try {
+            S();
+        } catch (Throwable e) {
+            onError(e.getMessage());
         }
-        return errors.size() <= currentErrorCount;
+        if (errorState != getError()) {
+            // means that new errors were thrown
+            throw getError();
+        }
     }
 
     /**
@@ -169,30 +181,36 @@ public class CompilerGrammar {
     /**
      * Handles what happens when the PRINT() method was called by a compiled program. By default,
      * this method appends to the String variable named "PRINT" in the environment. You can override
-     * this method in a subclass to hook what actually happens when PRINT() is called.
+     * this method in a subclass to hook what actually happens when PRINT() is called. Note that
+     * according to the specs, all statements must return something. By default, this method returns
+     * the message.
      *
      * @param message the message to print
      */
-    protected void print(Object message) {
+    protected Object print(Object message) {
         Object print = getEnvironment().getValue("PRINT");
         if (print == null) print = "";
         define("PRINT", (String) print + message);
+        return message;
     }
 
     /**
      * The main entry point of the compiler program. Essentially collects all semi-colon statements.
-     * <p>
+     * According to the project specs, S() must return something so it returns an Object by default.
+     * For the purposes of this program, this method just returns null.
      * Accepts grammar of the form:
      * S -> EOF | R;S
+     * @return an Object representing the list of statements
      */
-    protected void S() {
+    protected Object S() {
         if (expect(TokenType.EOF))
-            return;
+            return null;
         R();
         if (!expect(TokenType.SEMICOLON))
-            error("S: expected semicolon after R");
+            onError("S: expected semicolon after R");
         else
             S();
+        return null;
     }
 
     /**
@@ -202,71 +220,78 @@ public class CompilerGrammar {
      * @param errorLabel1  the label for the error if there was no left parenthesis
      * @param errorLabel2  the label for the error if there was no right parenthesis
      * @param lexemeBefore the lexeme used before this wrapped expression
-     * @return the value of the wrapped expression
+     * @return the value returned by the wrapped expression
      */
     protected Object expectWrappedExpression(String errorLabel1,
                                              String errorLabel2,
                                              String lexemeBefore) {
         if (!expect(TokenType.LPAREN))
-            error(errorLabel1 + ": expected left parenthesis"
+            onError(errorLabel1 + ": expected left parenthesis"
                 + (lexemeBefore != null ? " after " + lexemeBefore : ""));
         Object result = E();
         if (!expect(TokenType.RPAREN))
-            error(errorLabel2 + ": expected right parenthesis"
+            onError(errorLabel2 + ": expected right parenthesis"
                 + (lexemeBefore != null ? " after " + lexemeBefore + "(<expression>" : ""));
         return result;
     }
 
     /**
      * The grammar symbol for a result statement. Essentially collects a single-line statement
-     * just right before a semi-colon. Note: no nested IFs yet.
-     *
+     * just right before a semi-colon. Note: no nested IFs allowed. According to the project specs,
+     * all statements (which is essentially represented by this method) must return something so
+     * this method returns an Object by default. However, for the purposes of this program, this
+     * method returns whatever the delegate statement returns.
      * Accepts grammar of the form:
      * R -> PRINT(E) | IF(B) PRINT(E) | IF(B) A | A
+     *
+     * @return the value returned by the nested IF or PRINT expression
      */
-    protected void R() {
+    protected Object R() {
 
         if (expect(TokenType.PRINT))
-            print(expectWrappedExpression("R1", "R2", "PRINT"));
+            return print(expectWrappedExpression("R1", "R2", "PRINT"));
 
         else if (expect(TokenType.IF)) {
 
             if (!expect(TokenType.LPAREN))
-                error("R3: expected left parenthesis");
+                onError("R3: expected left parenthesis");
 
             // save the current environment first in case condition is not met
-            boolean condition = B();
+            boolean condition = (boolean) B();
 
             if (!expect(TokenType.RPAREN))
-                error("R4: expected right parenthesis");
+                onError("R4: expected right parenthesis");
 
             if (expect(TokenType.PRINT)) {
                 Object wrappedResult = expectWrappedExpression("R5", "R6", "PRINT");
                 if (condition)
-                    print(wrappedResult);
+                    return print(wrappedResult);
             } else {
                 Environment previousEnvironment = getEnvironment();
-                A();
+                Object result = A();
                 if (!condition) {
                     // reset the bindings because we don't want to assign the variable anymore
                     setEnvironment(previousEnvironment);
+                } else {
+                    return result;
                 }
             }
         } else
-            A();
+            return A();
+
+        return null;
+
     }
 
 
     /**
-     * The grammar symbol for logical (boolean) expressions. Note that this does not yet accept
-     *
-     *
+     * The grammar symbol for logical (boolean) expressions.
      * Accepts grammar of the form:
      * B -> E <= E | E >= E | E < E | E > E | E == E | E != E
      *
      * @return the result of a boolean or internal arithmetic expression
      */
-    protected boolean B() {
+    protected Object B() {
         Object lhs = E();
         Token op = getToken();
         consumeNextToken();
@@ -301,24 +326,25 @@ public class CompilerGrammar {
     }
 
     /**
-     * The grammar symbol for an assignment statement.
-     * <p>
+     * The grammar symbol for an assignment statement. Note that according to the project specs,
+     * all statements must return something. By default, this method returns null.
      * Accepts grammar of the form:
      * A -> IDENT = E
      */
-    protected void A() {
+    protected Object A() {
         if (!expect(TokenType.IDENT, false))
-            error("M1: expected an identifier as left value of an assignment statement");
+            onError("M1: expected an identifier as left value of an assignment statement");
         else {
             String identifier = getToken().getLexeme();
             consumeNextToken();
             if (!expect(TokenType.ASSIGNMENT))
-                error("M2: expected an equal sign after variable during assignment");
+                onError("M2: expected an equal sign after variable during assignment");
             else {
                 Object value = E();
                 define(identifier, value);
             }
         }
+        return null;
     }
 
     /**
@@ -348,7 +374,7 @@ public class CompilerGrammar {
                     Object b = E();
                     if (a instanceof Double && b instanceof Double)
                         return (double) a + (double) b;
-                    error("E2: invalid " + op.name() + " on doubles");
+                    onError("E2: invalid " + op.name() + " on doubles");
                     break;
                 }
                 case PLUS: case MULT: case DIVIDE: case MODULO: case EXP: {
@@ -378,7 +404,7 @@ public class CompilerGrammar {
                                     return sb.toString();
                                 }
                             default:
-                                error("E3: invalid " + op.name() + " on non-doubles");
+                                onError("E3: invalid " + op.name() + " on non-doubles");
                         }
                     }
                     break;
@@ -396,7 +422,7 @@ public class CompilerGrammar {
             } else if (expect(TokenType.MINUS, false)) {
                 Object b = E();
                 if (!(a instanceof Double) || !(b instanceof Double)) {
-                    error("E4: expected doubles after MINUS token");
+                    onError("E4: expected doubles after MINUS token");
                     return 0.0;
                 }
                 return (double) a + (double) b;
@@ -426,7 +452,7 @@ public class CompilerGrammar {
                 else
                     b = F();
                 if (!(a instanceof Double) || !(b instanceof Double)) {
-                    error("F3: invalid " + op.name() + "on non-doubles");
+                    onError("F3: invalid " + op.name() + "on non-doubles");
                 }
                 double x = (double) a;
                 double y = (double) b;
@@ -456,7 +482,7 @@ public class CompilerGrammar {
             else
                 b = X();
             if (!(b instanceof Double)) {
-                error("U3: expected negation of a double");
+                onError("U3: expected negation of a double");
                 return 0.0;
             }
             return -(double) b;
@@ -479,7 +505,7 @@ public class CompilerGrammar {
             else
                 b = U();
             if (!(a instanceof Double) || !(b instanceof Double)) {
-                error("X3: expected exponentiation of doubles");
+                onError("X3: expected exponentiation of doubles");
                 return 0.0;
             }
             return Math.pow((double) a, (double) b);
@@ -493,7 +519,6 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * D -> IDENT | NUMBER | STRING | SQRT(E)
      *
-     * @return
      */
     protected Object D() {
         Token token = getToken();
@@ -519,11 +544,11 @@ public class CompilerGrammar {
                     if (val < 0) return 0.0; // dummy value
                     return Math.sqrt(val);
                 }
-                error("D3: expected double for expression");
+                onError("D3: expected double for expression");
                 break;
             }
             default:
-                error("D4: expected variable or literal");
+                onError("D4: expected variable or literal");
         }
         return 0.0;
     }
