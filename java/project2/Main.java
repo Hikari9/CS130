@@ -16,8 +16,11 @@ public class Main {
     /**
      * Driver program
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CompileException {
         new Main("sample-rico.in", "sample-rico.out");
+        new Main("sample1.in", "sample1.out");
+        new Main("sample2.in", "sample2.out");
+        new Main("sample3-error-cases.in", "sample3-error-cases.out");
     }
 
     /**
@@ -56,9 +59,8 @@ public class Main {
                 + debugOutPath
                 + "]");
         } catch (CompileException e) {
-            System.out.println("Compile error");
             // show errors to console error stream
-            e.printStackTrace(System.err);
+            e.printStackTrace(System.out);
             // show the errors to the debug stream
             e.printStackTrace(debugStream);
         }

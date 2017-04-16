@@ -36,7 +36,10 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
     @Override
     protected Object print(Object message) {
         if (condition == null || condition) {
-            out.println("output (" + message + ")");
+            if (message instanceof Double)
+                out.printf("output (%.2f)\n", (Double) message);
+            else
+                out.println("output (" + message + ")");
         }
         return super.print(message);
     }
@@ -62,7 +65,11 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
         Object result = super.A();
         if (condition == null || condition) {
             Environment env = getEnvironment();
-            out.printf("computation performed (%s = %s)\n", env.identifier, ""  + env.value);
+            out.printf("computation performed (%s = ", env.identifier);
+            if (env.value instanceof Double)
+                out.printf("%.2f)\n", (Double) env.value);
+            else
+                out.print(env.value + ")\n");
         }
         return result;
     }

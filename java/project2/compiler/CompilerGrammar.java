@@ -118,7 +118,7 @@ public class CompilerGrammar {
      */
     public void compile(String program, boolean keepBindings) throws CompileException {
         this.tokenizer = onCreateTokenizer(program);
-        if (keepBindings)
+        if (!keepBindings)
             setEnvironment(new Environment());
         // keep current error state if
         CompileException errorState = getError();
@@ -359,86 +359,33 @@ public class CompilerGrammar {
      * S - subtraction
      *
      * Accepts grammar of the form:
-     * E -> (E) | (E) + E | (E) - E | (E) * E | (E) / E | (E) % E | (E) ** E
      * E -> F | F + E | F - E
      *
      * @return the resulting value of the expression
      */
     protected Object E() {
-        if (expect(TokenType.LPAREN, false)) {
-            Object a = expectWrappedExpression("E1", "E2", null);
-            TokenType op = getToken().getTokenType();
-            switch (op) {
-                case MINUS: {
-                    // special case, perform a plus without consuming the token
-                    Object b = E();
-                    if (a instanceof Double && b instanceof Double)
-                        return (double) a + (double) b;
-                    onError("E2: invalid " + op.name() + " on doubles");
-                    break;
-                }
-                case PLUS: case MULT: case DIVIDE: case MODULO: case EXP: {
-                    consumeNextToken();
-                    Object b = E();
-                    if (a instanceof Double && b instanceof Double) {
-                        double x = (double) a;
-                        double y = (double) b;
-                        switch (op) {
-                            case PLUS: return x + y;
-                            case MULT: return x * y;
-                            case DIVIDE: return x / y;
-                            case MODULO: return x % y; // note: double modulo
-                            case EXP: return Math.pow(x, y);
-                        }
-                    } else {
-                        switch (op) {
-                            case PLUS:
-                                return "" + a + b;
-                            case MULT:
-                                if (b instanceof Double) {
-                                    // concatenate string n times
-                                    StringBuilder sb = new StringBuilder();
-                                    int numTimes = (int) (double) b;
-                                    for (int i = 0; i < numTimes; ++i)
-                                        sb.append(a);
-                                    return sb.toString();
-                                }
-                            default:
-                                onError("E3: invalid " + op.name() + " on non-doubles");
-                        }
-                    }
-                    break;
-                }
-                default:
-                    return a;
+        Object a = F();
+        if (expect(TokenType.PLUS)) {
+            Object b = E();
+            if (!(a instanceof Double) || !(b instanceof Double))
+                return "" + a + b;
+            return (double) a + (double) b;
+        } else if (expect(TokenType.MINUS, false)) {
+            Object b = E();
+            if (!(a instanceof Double) || !(b instanceof Double)) {
+                onError("E4: expected doubles after MINUS token");
+                return 0.0;
             }
+            return (double) a + (double) b;
         } else {
-            Object a = F();
-            if (expect(TokenType.PLUS)) {
-                Object b = E();
-                if (!(a instanceof Double) || !(b instanceof Double))
-                    return "" + a + b;
-                return (double) a + (double) b;
-            } else if (expect(TokenType.MINUS, false)) {
-                Object b = E();
-                if (!(a instanceof Double) || !(b instanceof Double)) {
-                    onError("E4: expected doubles after MINUS token");
-                    return 0.0;
-                }
-                return (double) a + (double) b;
-            } else {
-                return a;
-            }
+            return a;
         }
-        return 0.0;
     }
 
     /**
      * The grammar symbol for factor expressions.
-     *
      * Accepts grammar of the form:
      * F -> U | U * F | U / F | U % F
-     * F -> U * (E) | U / (E) | U % (E)
      */
     protected Object F() {
         Object a = U();
@@ -446,13 +393,9 @@ public class CompilerGrammar {
         switch (op) {
             case MULT: case DIVIDE: case MODULO: {
                 consumeNextToken();
-                Object b;
-                if (expect(TokenType.LPAREN, false))
-                    b = expectWrappedExpression("F1", "F2", null);
-                else
-                    b = F();
+                Object b = F();
                 if (!(a instanceof Double) || !(b instanceof Double)) {
-                    onError("F3: invalid " + op.name() + "on non-doubles");
+                    onError("F1: invalid " + op.name() + "on non-doubles");
                 }
                 double x = (double) a;
                 double y = (double) b;
@@ -470,19 +413,14 @@ public class CompilerGrammar {
 
     /**
      * The grammar symbol for unary negation.
-     *
      * Accepts grammar of the form:
-     * U -> X | -X | -(E)
+     * U -> X | -X
      */
     protected Object U() {
         if (expect(TokenType.MINUS)) {
-            Object b;
-            if (expect(TokenType.LPAREN, false))
-                b = expectWrappedExpression("U1", "U2", "negation");
-            else
-                b = X();
+            Object b = X();
             if (!(b instanceof Double)) {
-                onError("U3: expected negation of a double");
+                onError("U1: expected negation of a double");
                 return 0.0;
             }
             return -(double) b;
@@ -492,20 +430,15 @@ public class CompilerGrammar {
 
     /**
      * The grammar symbol for exponentiation.
-     *
      * Accepts grammar of the form:
-     * X -> D | D ** U | D ** (E)
+     * X -> P | P ** U
      */
     protected Object X() {
-        Object a = D();
+        Object a = P();
         if (expect(TokenType.EXP)) {
-            Object b;
-            if (expect(TokenType.LPAREN, false))
-                b = expectWrappedExpression("X1", "X2", "exponentiation (**)");
-            else
-                b = U();
+            Object b = X();
             if (!(a instanceof Double) || !(b instanceof Double)) {
-                onError("X3: expected exponentiation of doubles");
+                onError("X1: expected exponentiation of doubles");
                 return 0.0;
             }
             return Math.pow((double) a, (double) b);
@@ -514,11 +447,20 @@ public class CompilerGrammar {
     }
 
     /**
-     * The grammar symbol representing any data type.
-     *
+     * The grammar symbol for parentheses.
+     * Accepts grammar of the form:
+     * P -> D | (E)
+     */
+    protected Object P() {
+        if (expect(TokenType.LPAREN, false))
+            return expectWrappedExpression("P1", "P2", null);
+        return D();
+    }
+
+    /**
+     * The grammar symbol representing any unit data type.
      * Accepts grammar of the form:
      * D -> IDENT | NUMBER | STRING | SQRT(E)
-     *
      */
     protected Object D() {
         Token token = getToken();
@@ -548,7 +490,7 @@ public class CompilerGrammar {
                 break;
             }
             default:
-                onError("D4: expected variable or literal");
+                onError("D4: expected variable or literal: ");
         }
         return 0.0;
     }
