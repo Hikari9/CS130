@@ -8,15 +8,12 @@ import java.io.PrintStream;
 import project2.compiler.CompileException;
 import project2.compiler.CompilerGrammar;
 
-/**
- * Tester program
- */
 public class Main {
 
     /**
      * Driver program
      */
-    public static void main(String[] args) throws IOException, CompileException {
+    public static void main(String[] args) throws IOException {
         new Main("sample-rico.in", "sample-rico.out");
         new Main("sample1.in", "sample1.out");
         new Main("sample2.in", "sample2.out");
@@ -32,38 +29,71 @@ public class Main {
      */
     public Main(String programFilename, String debugOutFilename) throws IOException {
 
+        System.out.println();
+        System.out.println("Compiling [" + programFilename + "]");
+
         // prepare paths
         String packageDir = "java/" + getClass().getPackage().getName();
         String dataFolder = packageDir + "/data/";
         String programPath = dataFolder + programFilename;
         String debugOutPath = dataFolder + debugOutFilename;
 
-        // collect all the contents of input file
-        String line;
-        StringBuilder builder = new StringBuilder();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(programPath));
-        while ((line = bufferedReader.readLine()) != null)
-            builder.append(line).append('\n');
-        String program = builder.toString();
-        bufferedReader.close();
-
         // create compiler grammar that debugs to debug output filename
         PrintStream debugStream = new PrintStream(debugOutPath);
         CompilerGrammar compiler = new CompilerGrammarWithDebug(debugStream);
 
-        try {
-            compiler.compile(program);
-            System.out.println("Program ["
-                + programPath
-                + "] successfully compiled to ["
-                + debugOutPath
-                + "]");
-        } catch (CompileException e) {
-            // show errors to console error stream
-            e.printStackTrace(System.out);
-            // show the errors to the debug stream
-            e.printStackTrace(debugStream);
+        // collect all the contents of input file
+        StringBuilder buffer = new StringBuilder();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(programPath));
+
+        // compile for every semicolon so that we can perform line-number-based debugging
+        int startingLineNumber = 1;
+        for (int lineNumber = 1; ; lineNumber++) {
+            String line = bufferedReader.readLine();
+            int semiColon = line != null ? line.indexOf(";") : 0;
+            int hashtagComment = line != null ? line.indexOf("#") : 0;
+            int slashComment = line != null ? line.indexOf("//") : 0;
+            if (hashtagComment < 0)
+                hashtagComment = Integer.MAX_VALUE;
+            if (slashComment < 0)
+                slashComment = Integer.MAX_VALUE;
+            if (line == null || (semiColon >= 0 && semiColon < hashtagComment && semiColon < slashComment)) {
+                if (line != null)
+                    buffer.append(line.substring(0, semiColon + 1));
+                try {
+                    // try compiling this statement
+                    compiler.compile(buffer.toString());
+                } catch (CompileException e) {
+                    // compile error!
+                    String compileErrorMessage = "compile error on line"
+                        + (startingLineNumber == lineNumber
+                            ? " " + lineNumber
+                            : "s " + startingLineNumber + "-" + lineNumber)
+                        + " ["
+                        + e.getMessage()
+                        + "]";
+                    // print error to console and to debugStream
+                    System.out.println(compileErrorMessage);
+                    debugStream.println(compileErrorMessage);
+                    compiler.clearErrors();
+                } finally {
+                    startingLineNumber = lineNumber + 1;
+                    buffer = new StringBuilder();
+                    if (line != null)
+                        buffer.append(line.substring(semiColon + 1));
+                    buffer.append('\n');
+                }
+            } else {
+                buffer.append(line).append('\n');
+            }
+            if (line == null) {
+                break;
+            }
         }
+
+        // close the streams
+        bufferedReader.close();
+        debugStream.close();
 
     }
 

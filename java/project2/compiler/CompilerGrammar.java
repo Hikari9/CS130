@@ -79,7 +79,7 @@ public class CompilerGrammar {
         if (error == null)
             error = new CompileException(message);
         else
-            error = new CompileException(message, error);
+            error = new CompileException(error.getMessage() + ", " + message, error);
     }
 
     /**
@@ -149,6 +149,8 @@ public class CompilerGrammar {
      */
     protected void consumeNextToken() {
         token = tokenizer.nextToken();
+        if (token.getTokenType().equals(TokenType.ERROR))
+            onError("lexical error: invalid token " + token.getLexeme());
     }
 
     /**
@@ -207,7 +209,7 @@ public class CompilerGrammar {
             return null;
         R();
         if (!expect(TokenType.SEMICOLON))
-            onError("S: expected semicolon after R");
+            onError("S: invalid statement or missing semicolon");
         else
             S();
         return null;
@@ -254,13 +256,13 @@ public class CompilerGrammar {
         else if (expect(TokenType.IF)) {
 
             if (!expect(TokenType.LPAREN))
-                onError("R3: expected left parenthesis");
+                onError("R3: expected left parenthesis after IF");
 
             // save the current environment first in case condition is not met
             boolean condition = (boolean) B();
 
             if (!expect(TokenType.RPAREN))
-                onError("R4: expected right parenthesis");
+                onError("R4: expected right parenthesis in IF");
 
             if (expect(TokenType.PRINT)) {
                 Object wrappedResult = expectWrappedExpression("R5", "R6", "PRINT");
@@ -490,7 +492,7 @@ public class CompilerGrammar {
                 break;
             }
             default:
-                onError("D4: expected variable or literal: ");
+                onError("D4: expected variable or literal");
         }
         return 0.0;
     }
