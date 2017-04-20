@@ -40,7 +40,7 @@ public class Main {
 
         // create compiler grammar that debugs to debug output filename
         PrintStream debugStream = new PrintStream(debugOutPath);
-        CompilerGrammar compiler = new CompilerGrammarWithDebug(debugStream);
+        CompilerGrammarWithDebug compiler = new CompilerGrammarWithDebug(debugStream);
 
         // collect all the contents of input file
         StringBuilder buffer = new StringBuilder();
@@ -63,26 +63,27 @@ public class Main {
                 try {
                     // try compiling this statement
                     compiler.compile(buffer.toString());
-                } catch (CompileException e) {
+                } catch (CompileException ignore) {
+                    // for compiler grammar debug, exceptions are logged and not thrown
+                }
+                if (compiler.getErrors().size() > 0) {
                     // compile error!
                     String compileErrorMessage = "compile error on line"
                         + (startingLineNumber == lineNumber
-                            ? " " + lineNumber
-                            : "s " + startingLineNumber + "-" + lineNumber)
-                        + " ["
-                        + e.getMessage()
-                        + "]";
+                        ? " " + lineNumber
+                        : "s " + startingLineNumber + "-" + lineNumber)
+                        + " "
+                        + compiler.getErrors().toString();
                     // print error to console and to debugStream
                     System.out.println(compileErrorMessage);
                     debugStream.println(compileErrorMessage);
-                    compiler.clearErrors();
-                } finally {
-                    startingLineNumber = lineNumber + 1;
-                    buffer = new StringBuilder();
-                    if (line != null)
-                        buffer.append(line.substring(semiColon + 1));
-                    buffer.append('\n');
+                    compiler.getErrors().clear();
                 }
+                startingLineNumber = lineNumber + 1;
+                buffer = new StringBuilder();
+                if (line != null)
+                    buffer.append(line.substring(semiColon + 1));
+                buffer.append('\n');
             } else {
                 buffer.append(line).append('\n');
             }

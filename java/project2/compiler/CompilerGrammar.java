@@ -6,16 +6,21 @@ import project1.handlers.Tokenizer;
 import project1.handlers.TokenizerNoComments;
 
 /**
- * An LL1 grammar parser with environment.
- * IMPORTANT: this compiler DOES NOT allow booleans to be assigned to variables, as per the
- * project specs.
+ * An LL1 grammar parser with environment. This compiler DOES NOT allow booleans to be assigned to
+ * variables, as per the project specs. Expressions compiled follow PEMDAS.
+ * Grammar rules:
+ * S -> EOF | R;S
+ * R -> PRINT(E) | IF(B) PRINT(E) | IF(B) A | A
+ * B -> E <= E | E >= E | E < E | E > E | E == E | E != E
+ * A -> IDENT = E
+ * E -> F | F + E | F - E
+ * F -> U | U * F | U / F | U % F
+ * U -> X | -X
+ * X -> P | P ** U
+ * P -> D | (E)
+ * D -> IDENT | NUMBER | STRING | SQRT(E)
  */
 public class CompilerGrammar {
-
-    /**
-     * Contains the list of all errors after compiling the grammar.
-     */
-    private CompileException error = null;
 
     /**
      * Captures the environment of the grammar parser
@@ -51,7 +56,7 @@ public class CompilerGrammar {
     }
 
     /**
-     * Defines a new identifier for the current environment of this compiler.
+     * Defines and binds a value to an identifier for the current working environment.
      *
      * @param identifier the identifier to the value to be bound
      * @param value      the value to be bound
@@ -61,8 +66,8 @@ public class CompilerGrammar {
     }
 
     /**
-     * Hook method for creating a tokenizer. By default, this constructs a TokenizerNoComments for
-     * the program.
+     * Hook method for creating a tokenizer. By default, this constructs a TokenizerNoComments
+     * object for the compiler program.
      *
      * @param program the program to tokenize
      * @return the Tokenizer object to be used by this compiler grammar
@@ -73,27 +78,11 @@ public class CompilerGrammar {
 
     /**
      * Hook that handles what happens when an error was thrown during compilation of a grammar.
-     * @param message
+     *
+     * @param message the error message
      */
-    protected void onError(String message) {
-        if (error == null)
-            error = new CompileException(message);
-        else
-            error = new CompileException(error.getMessage() + ", " + message, error);
-    }
-
-    /**
-     * Getter to the compile errors thrown in this compiler grammar.
-     */
-    public CompileException getError() {
-        return error;
-    }
-
-    /**
-     * Clears all errors associated with this compiler grammar object.
-     */
-    public void clearErrors() {
-        this.error = null;
+    protected void onError(String message) throws CompileException {
+        throw new CompileException(message);
     }
 
     /**
@@ -103,7 +92,6 @@ public class CompilerGrammar {
      *
      * @param program the program to be tokenized and compiled
      * @throws CompileException if the program compiled while generating errors
-     *
      */
     public void compile(String program) throws CompileException {
         compile(program, true);
@@ -120,19 +108,9 @@ public class CompilerGrammar {
         this.tokenizer = onCreateTokenizer(program);
         if (!keepBindings)
             setEnvironment(new Environment());
-        // keep current error state if
-        CompileException errorState = getError();
         // start with the first token
         consumeNextToken();
-        try {
-            S();
-        } catch (Throwable e) {
-            onError(e.getMessage());
-        }
-        if (errorState != getError()) {
-            // means that new errors were thrown
-            throw getError();
-        }
+        S();
     }
 
     /**
@@ -147,7 +125,7 @@ public class CompilerGrammar {
     /**
      * Consumes the current token and assigns the next token from the tokenizer.
      */
-    protected void consumeNextToken() {
+    protected void consumeNextToken() throws CompileException {
         token = tokenizer.nextToken();
         if (token.getTokenType().equals(TokenType.ERROR))
             onError("lexical error: invalid token " + token.getLexeme());
@@ -160,7 +138,7 @@ public class CompilerGrammar {
      * @param tokenType the token type expected
      * @return true if the current token has type equal to tokenType
      */
-    protected boolean expect(TokenType tokenType) {
+    protected boolean expect(TokenType tokenType) throws CompileException {
         return expect(tokenType, true);
     }
 
@@ -171,7 +149,7 @@ public class CompilerGrammar {
      * @param consume   whether to consume the next token if the expected token type matches
      * @return true if the current token has type equal to tokenType
      */
-    protected boolean expect(TokenType tokenType, boolean consume) {
+    protected boolean expect(TokenType tokenType, boolean consume) throws CompileException {
         if (getToken().getTokenType().equals(tokenType)) {
             if (consume)
                 consumeNextToken();
@@ -202,9 +180,10 @@ public class CompilerGrammar {
      * For the purposes of this program, this method just returns null.
      * Accepts grammar of the form:
      * S -> EOF | R;S
+     *
      * @return an Object representing the list of statements
      */
-    protected Object S() {
+    protected Object S() throws CompileException {
         if (expect(TokenType.EOF))
             return null;
         R();
@@ -226,7 +205,7 @@ public class CompilerGrammar {
      */
     protected Object expectWrappedExpression(String errorLabel1,
                                              String errorLabel2,
-                                             String lexemeBefore) {
+                                             String lexemeBefore) throws CompileException {
         if (!expect(TokenType.LPAREN))
             onError(errorLabel1 + ": expected left parenthesis"
                 + (lexemeBefore != null ? " after " + lexemeBefore : ""));
@@ -248,7 +227,7 @@ public class CompilerGrammar {
      *
      * @return the value returned by the nested IF or PRINT expression
      */
-    protected Object R() {
+    protected Object R() throws CompileException {
 
         if (expect(TokenType.PRINT))
             return print(expectWrappedExpression("R1", "R2", "PRINT"));
@@ -293,7 +272,7 @@ public class CompilerGrammar {
      *
      * @return the result of a boolean or internal arithmetic expression
      */
-    protected Object B() {
+    protected Object B() throws CompileException {
         Object lhs = E();
         Token op = getToken();
         consumeNextToken();
@@ -333,7 +312,7 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * A -> IDENT = E
      */
-    protected Object A() {
+    protected Object A() throws CompileException {
         if (!expect(TokenType.IDENT, false))
             onError("M1: expected an identifier as left value of an assignment statement");
         else {
@@ -359,13 +338,13 @@ public class CompilerGrammar {
      * M - modulo
      * A - addition
      * S - subtraction
-     *
+     * <p>
      * Accepts grammar of the form:
      * E -> F | F + E | F - E
      *
      * @return the resulting value of the expression
      */
-    protected Object E() {
+    protected Object E() throws CompileException {
         Object a = F();
         if (expect(TokenType.PLUS)) {
             Object b = E();
@@ -373,9 +352,13 @@ public class CompilerGrammar {
                 return "" + a + b;
             return (double) a + (double) b;
         } else if (expect(TokenType.MINUS, false)) {
+            // To perform MINUS, we don't consume the MINUS token. We proceed to addition and just
+            // perform unary negation later. This is the preferred approach because of issues when
+            // for example E -> a - b + c becomes E -> a - (b + c) when subtraction is processed
+            // immediately.
             Object b = E();
             if (!(a instanceof Double) || !(b instanceof Double)) {
-                onError("E4: expected doubles after MINUS token");
+                onError("E1: expected doubles after MINUS token");
                 return 0.0;
             }
             return (double) a + (double) b;
@@ -389,11 +372,13 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * F -> U | U * F | U / F | U % F
      */
-    protected Object F() {
+    protected Object F() throws CompileException {
         Object a = U();
         TokenType op = getToken().getTokenType();
         switch (op) {
-            case MULT: case DIVIDE: case MODULO: {
+            case MULT:
+            case DIVIDE:
+            case MODULO: {
                 consumeNextToken();
                 Object b = F();
                 if (!(a instanceof Double) || !(b instanceof Double)) {
@@ -402,9 +387,12 @@ public class CompilerGrammar {
                 double x = (double) a;
                 double y = (double) b;
                 switch (op) {
-                    case MULT: return x * y;
-                    case DIVIDE: return x / y;
-                    case MODULO: return x % y;
+                    case MULT:
+                        return x * y;
+                    case DIVIDE:
+                        return x / y;
+                    case MODULO:
+                        return x % y;
                 }
                 return 0.0;
             }
@@ -418,7 +406,7 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * U -> X | -X
      */
-    protected Object U() {
+    protected Object U() throws CompileException {
         if (expect(TokenType.MINUS)) {
             Object b = X();
             if (!(b instanceof Double)) {
@@ -435,7 +423,7 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * X -> P | P ** U
      */
-    protected Object X() {
+    protected Object X() throws CompileException {
         Object a = P();
         if (expect(TokenType.EXP)) {
             Object b = X();
@@ -453,7 +441,7 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * P -> D | (E)
      */
-    protected Object P() {
+    protected Object P() throws CompileException {
         if (expect(TokenType.LPAREN, false))
             return expectWrappedExpression("P1", "P2", null);
         return D();
@@ -464,7 +452,7 @@ public class CompilerGrammar {
      * Accepts grammar of the form:
      * D -> IDENT | NUMBER | STRING | SQRT(E)
      */
-    protected Object D() {
+    protected Object D() throws CompileException {
         Token token = getToken();
         switch (token.getTokenType()) {
             case IDENT: {

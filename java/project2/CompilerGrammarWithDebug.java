@@ -1,7 +1,10 @@
 package project2;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import project2.compiler.CompileException;
 import project2.compiler.CompilerGrammar;
 import project2.compiler.Environment;
 
@@ -13,6 +16,7 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
     // Set a flag to continue whenever a boolean expression is encountered during IF statements.
     Boolean condition = null;
     PrintStream out;
+    List<String> errors = new ArrayList<>();
 
     /**
      * Constructs a default CompilerGrammarWithDebug object that wraps to the System.out stream.
@@ -28,6 +32,24 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
     public CompilerGrammarWithDebug(PrintStream printStream) {
         super();
         out = printStream;
+    }
+
+    /**
+     * Getter to the list of errors produced by this compiler grammar.
+     * @return a reference to the list of errors
+     */
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    /**
+     * Log errors instead of throwing an exception.
+     * @param message the error message
+     */
+    @Override
+    protected void onError(String message) throws CompileException {
+        // super.onError(message);
+        errors.add(message);
     }
 
     /**
@@ -49,7 +71,7 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
      * Toggles the condition flag for the current statement.
      */
     @Override
-    protected Object B() {
+    protected Object B() throws CompileException {
         this.condition = (boolean) super.B();
         if (condition) out.print("condition met, ");
         else out.println("condition not met");
@@ -61,7 +83,7 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
      * is encountered.
      */
     @Override
-    protected Object A() {
+    protected Object A() throws CompileException {
         Object result = super.A();
         if (condition == null || condition) {
             Environment env = getEnvironment();
@@ -78,7 +100,7 @@ public class CompilerGrammarWithDebug extends CompilerGrammar {
      * Reset the condition flag for every statement.
      */
     @Override
-    protected Object R() {
+    protected Object R() throws CompileException {
         condition = null;
         return super.R();
     }

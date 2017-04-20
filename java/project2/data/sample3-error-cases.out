@@ -24,7 +24,7 @@ output (0.00)
 compile error on lines 26-28 [D4: expected variable or literal, R2: expected right parenthesis after PRINT(<expression>, S: invalid statement or missing semicolon]
 computation performed (xx = 5.00)
 condition met, output (Greater)
-compile error on line 33 [R3: expected left parenthesis, R4: expected right parenthesis]
+compile error on line 33 [R3: expected left parenthesis after IF, R4: expected right parenthesis in IF]
 condition not met
 condition met, output (Ok)
 condition not met
