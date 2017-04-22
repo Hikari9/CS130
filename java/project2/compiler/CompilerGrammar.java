@@ -13,8 +13,10 @@ import project1.handlers.TokenizerNoComments;
  * R -> PRINT(E) | IF(B) PRINT(E) | IF(B) A | A
  * B -> E <= E | E >= E | E < E | E > E | E == E | E != E
  * A -> IDENT = E
- * E -> F | F + E | F - E
- * F -> U | U * F | U / F | U % F
+ * E -> M | M + E | M - E
+ * M -> F | F % M
+ * F -> G | G * F | G / F
+ * G -> U | /U
  * U -> X | -X
  * X -> P | P ** U
  * P -> D | (E)
