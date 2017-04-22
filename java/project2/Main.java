@@ -18,6 +18,7 @@ public class Main {
         new Main("sample1.in", "sample1.out");
         new Main("sample2.in", "sample2.out");
         new Main("sample3-error-cases.in", "sample3-error-cases.out");
+        new Main("test.in", "test.out");
     }
 
     /**

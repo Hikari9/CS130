@@ -338,14 +338,13 @@ public class CompilerGrammar {
      * M - modulo
      * A - addition
      * S - subtraction
-     * <p>
      * Accepts grammar of the form:
-     * E -> F | F + E | F - E
+     * E -> M | M + E | M - E
      *
      * @return the resulting value of the expression
      */
     protected Object E() throws CompileException {
-        Object a = F();
+        Object a = M();
         if (expect(TokenType.PLUS)) {
             Object b = E();
             if (!(a instanceof Double) || !(b instanceof Double))
@@ -368,37 +367,57 @@ public class CompilerGrammar {
     }
 
     /**
+     * The grammar symbol for modulo expressions. Note that unlike C/Java, the implementation
+     * below performs right-to-left modulo, since the grammar parser is LL1.
+     * Accepts grammar of the form:
+     * M -> F | F % M
+     */
+    protected Object M() throws CompileException {
+        Object a = F();
+        if (expect(TokenType.MODULO)) {
+            Object b = M();
+            if (!(a instanceof Double) || !(b instanceof Double))
+                onError("M1: invalid MODULO on non-doubles");
+            return (double) a * (double) b;
+        }
+        return a;
+    }
+
+    /**
      * The grammar symbol for factor expressions.
      * Accepts grammar of the form:
-     * F -> U | U * F | U / F | U % F
+     * F -> G | G * F | G / F
      */
     protected Object F() throws CompileException {
-        Object a = U();
-        TokenType op = getToken().getTokenType();
-        switch (op) {
-            case MULT:
-            case DIVIDE:
-            case MODULO: {
-                consumeNextToken();
-                Object b = F();
-                if (!(a instanceof Double) || !(b instanceof Double)) {
-                    onError("F1: invalid " + op.name() + "on non-doubles");
-                }
-                double x = (double) a;
-                double y = (double) b;
-                switch (op) {
-                    case MULT:
-                        return x * y;
-                    case DIVIDE:
-                        return x / y;
-                    case MODULO:
-                        return x % y;
-                }
-                return 0.0;
-            }
-            default:
-                return a;
+        Object a = G();
+        if (expect(TokenType.MULT) || expect(TokenType.DIVIDE, false)) {
+            Object b = F();
+            if (!(a instanceof Double) || !(b instanceof Double))
+                onError("F1: invalid MULT/DIVIDE on non-doubles");
+            return (double) a * (double) b;
         }
+        return a;
+    }
+
+    /**
+     * The grammar symbol for mult-inverse operation (/x). Needed
+     * as a flag for division to override the right-to-left default
+     * behavior of an LL1 parser. A limitation, however, is that
+     * this grammar implies that it is possible to perform inversion
+     * by itself now, ergo "PRINT(/2);" is now a valid statement.
+     * Accepts grammar of the form:
+     * G -> U | / U
+     */
+    protected Object G() throws CompileException {
+        boolean invert = expect(TokenType.DIVIDE);
+        Object b = U();
+        if (invert) {
+            if (b instanceof Double)
+                return 1.0 / (double) b;
+            else
+                onError("U1: expected negation of a double");
+        }
+        return b;
     }
 
     /**
@@ -407,15 +426,15 @@ public class CompilerGrammar {
      * U -> X | -X
      */
     protected Object U() throws CompileException {
-        if (expect(TokenType.MINUS)) {
-            Object b = X();
-            if (!(b instanceof Double)) {
+        boolean negate = expect(TokenType.MINUS);
+        Object b = X();
+        if (negate) {
+            if (b instanceof Double)
+                return - (double) b;
+            else
                 onError("U1: expected negation of a double");
-                return 0.0;
-            }
-            return -(double) b;
         }
-        return X();
+        return b;
     }
 
     /**
