@@ -378,7 +378,7 @@ public class CompilerGrammar {
             Object b = M();
             if (!(a instanceof Double) || !(b instanceof Double))
                 onError("M1: invalid MODULO on non-doubles");
-            return (double) a * (double) b;
+            return (double) a % (double) b;
         }
         return a;
     }
