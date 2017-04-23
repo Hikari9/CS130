@@ -402,7 +402,7 @@ public class CompilerGrammar {
     }
 
     /**
-     * The grammar symbol for mult-inverse operation (/x). Needed
+     * The grammar symbol for inversion operation (/x). Needed
      * as a flag for division to override the right-to-left default
      * behavior of an LL1 parser. A limitation, however, is that
      * this grammar implies that it is possible to perform inversion
@@ -417,7 +417,7 @@ public class CompilerGrammar {
             if (b instanceof Double)
                 return 1.0 / (double) b;
             else
-                onError("U1: expected negation of a double");
+                onError("G1: expected DIVIDE on a double");
         }
         return b;
     }
